@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Blog Site</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
+    <div class="background-wrapper">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-container">
+      <nav class="navbar">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <header class="hero-section">
+        <p class="welcome-text">Welcome to</p>
+        <h1>Best Blog Site</h1>
+
+        <div class="subtitle">
+          <p>Share your ideas to the world.</p>
+          <p>The people want to know!</p>
+        </div>
+
+        <a href="/new-post" class="btn-new-post">New Post</a>
+      </header>
+     
+    </div>
+     <%- include('partials/footer') %>
+  </body>
+</html>

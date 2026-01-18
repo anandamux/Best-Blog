@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts - Best Blog Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+
+    <div class="background-wrapper">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts" class="active">Posts</a></li>
+                <li><a href="/about">About us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="posts-section">
+            <h2 class="page-title">Recent Ideas</h2>
+
+            <% if (posts.length === 0) { %>
+                <div class="empty-state">
+                    <h3>It's quiet here...</h3>
+                    <p>No posts found. Be the first to share something!</p>
+                    <a href="/new-post" class="btn-new-post">Create Post</a>
+                </div>
+            <% } else { %>
+                <div class="posts-grid">
+                    <% posts.forEach(function(post){ %>
+                        <article class="post-card">
+                            <h3 class="post-title"><%= post.title %></h3>
+                            <div class="post-meta">
+                                <span class="author">By <strong><%= post.author %></strong></span>
+                            </div>
+                            <p class="post-preview">
+                                <%= post.content %>
+                            </p>
+                        </article>
+                    <% }) %>
+                </div>
+            <% } %>
+        </main>
+
+        <%- include('partials/footer') %>
+    </div>
+
+</body>
+</html>

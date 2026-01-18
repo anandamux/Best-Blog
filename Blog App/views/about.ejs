@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Best Blog Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
+    <div class="background-wrapper">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-container">
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/about" class="active">About us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <main class="about-section">
+        <div class="about-header">
+          <h2 class="page-title">Who We Are</h2>
+          <p class="about-lead">
+            We are a community of thinkers, writers, and dreamers. Our goal is
+            to provide a space where ideas can flow freely and knowledge is
+            shared without boundaries.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="icon">🚀</div>
+            <h3>Innovation</h3>
+            <p>Always looking for the next big idea to change the world.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="icon">🌍</div>
+            <h3>Community</h3>
+            <p>Connecting people from different backgrounds through words.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="icon">💡</div>
+            <h3>Creativity</h3>
+            <p>Express yourself authentically and artistically.</p>
+          </div>
+        </div>
+
+        <div class="story-section">
+          <h3>Our Story</h3>
+          <p>
+            Started in 2026, Best Blog Site began as a small project to help
+            developers learn backend programming. Today, it stands as a
+            testament to the power of code and design coming together. We
+            believe that every line of code tells a story, and every story
+            deserves to be heard.
+          </p>
+        </div>
+      </main>
+
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>

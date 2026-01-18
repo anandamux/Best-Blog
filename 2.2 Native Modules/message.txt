@@ -1,0 +1,5 @@
+Hello from NodeJS!
+Hello From Ananda!
+
+import { randomSuperhero } from "superheroes";
+const name = randomSuperhero();

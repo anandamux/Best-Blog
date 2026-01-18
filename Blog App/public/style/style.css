@@ -1,0 +1,552 @@
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #1a0b2e; /* Fundo roxo bem escuro base */
+  color: white;
+  height: 100vh;
+  min-height: 100vh; /* Permite crescer se tiver muito conteúdo */
+  overflow-y: auto;
+  position: relative;
+}
+
+/* --- Fundo Animado / Blobs --- */
+/* Isso cria aquelas manchas roxas desfocadas da imagem */
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #2e0249, #570a57);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* O desfoque alto cria o efeito suave */
+  opacity: 0.7;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: #4a1c68;
+}
+
+.blob-2 {
+  bottom: -10%;
+  right: 0;
+  width: 700px;
+  height: 700px;
+  background: #a91079; /* Rosa/Roxo vibrante */
+}
+
+.blob-3 {
+  top: 30%;
+  left: 40%;
+  width: 400px;
+  height: 400px;
+  background: #764abc; /* Roxo azulado central */
+  opacity: 0.5;
+}
+
+/* --- Layout Principal --- */
+.glass-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Navegação --- */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+/* O traço embaixo do "Home" */
+.navbar a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  bottom: -5px;
+  left: 0;
+}
+
+/* --- Hero Section (Texto Principal) --- */
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Alinha à esquerda */
+  margin-top: -50px; /* Ajuste visual leve para subir */
+}
+
+.welcome-text {
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: -10px;
+  color: #d1d1d1;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  /* Gradiente suave no texto para parecer "vidro" */
+  background: linear-gradient(90deg, #ffffff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #c4b5fd; /* Lilás claro */
+  margin-bottom: 3rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* --- Botão --- */
+.btn-new-post {
+  display: inline-block;
+  background-color: #dbeafe; /* Azul bem clarinho/Branco */
+  color: #1e1b4b; /* Texto escuro para contraste */
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Borda redonda estilo pílula */
+  text-decoration: none;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-new-post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+
+// NEW POST PAGE
+
+/* --- Estilos da Página New Post --- */
+
+.editor-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05); /* Fundo sutil para o formulário */
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  margin-left: 10px;
+  color: #c4b5fd; /* Lilás claro */
+}
+
+/* Estilo "Glass" para os Inputs */
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.1); /* Transparente */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  resize: vertical; /* Permite redimensionar o texto verticalmente */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #c4b5fd; /* Borda lilás ao clicar */
+  box-shadow: 0 0 15px rgba(196, 181, 253, 0.3);
+}
+
+/* Botão de Publicar */
+.btn-submit {
+  margin-top: 1rem;
+  background-color: #dbeafe;
+  color: #1e1b4b;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+  width: fit-content;
+  align-self: flex-end; /* Alinha o botão à direita */
+}
+
+.btn-submit:hover {
+  transform: scale(1.05);
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+// FOOTER PARTIAL
+
+/* --- Footer --- */
+
+/* --- Ajuste no Container Principal --- */
+.glass-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  /* Importante: min-height garante que o container 
+       seja pelo menos do tamanho da tela */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Ajuste no Rodapé (Footer) --- */
+.main-footer {
+  /* O 'auto' empurra o footer para o fim do container flex */
+  margin-top: auto;
+
+  /* Espaçamento para não grudar no botão de publicar */
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+  /* Centraliza o texto e garante largura total */
+  width: 100%;
+  text-align: center;
+
+  /* Garante que fique acima de outros elementos se houver sobreposição */
+  position: relative;
+  z-index: 10;
+}
+
+.main-footer p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px; /* Deixa o texto mais elegante */
+}
+
+/* --- Estilos da Página de Posts --- */
+
+.posts-section {
+  width: 100%;
+  flex: 1; /* Garante que ocupe o espaço disponível */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid Layout */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Responsivo automático */
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Cartão do Post (Glassmorphism) */
+.post-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #c4b5fd;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.post-preview {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  /* Quebra palavras longas para não estourar o card */
+  word-wrap: break-word;
+}
+
+/* --- Estado Vazio (Zero posts) --- */
+.empty-state {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 3rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.empty-state h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state .btn-new-post {
+  margin-top: 2rem;
+}
+
+/* --- Página de Contato --- */
+
+.contact-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Layout de duas colunas */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Metade para texto, metade para form */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Estilo da coluna de informações (esquerda) */
+.contact-info {
+  color: white;
+  padding-top: 1rem;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #e0e7ff;
+  line-height: 1.6;
+}
+
+.info-item {
+  margin-bottom: 2rem;
+}
+
+.info-item h3 {
+  color: #c4b5fd; /* Lilás */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.info-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Ajuste específico para o formulário na página de contato */
+.contact-form-adjust {
+  /* Removemos a largura fixa se houver e deixamos preencher a coluna */
+  width: 100%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.03
+  ); /* Um pouco mais transparente que o normal */
+}
+
+/* --- Responsividade (Para celular) --- */
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr; /* Vira uma coluna só */
+    gap: 2rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem; /* Título menor no celular */
+  }
+
+  .glass-container {
+    padding: 2rem 1.5rem; /* Menos padding nas laterais */
+  }
+}
+
+/* --- Página About Us --- */
+
+.about-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0e7ff;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Grid de Valores */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.value-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  /* Efeito de brilho no emoji/icone */
+  text-shadow: 0 0 15px rgba(196, 181, 253, 0.5);
+}
+
+.value-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.value-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Seção de Texto Corrido (Our Story) */
+.story-section {
+  background: rgba(0, 0, 0, 0.2); /* Fundo um pouco mais escuro */
+  padding: 2.5rem;
+  border-radius: 20px;
+  border-left: 4px solid #c4b5fd; /* Detalhe lateral lilás */
+}
+
+.story-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.story-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr; /* Um cartão por vez no celular */
+  }
+
+  .story-section {
+    padding: 1.5rem;
+  }
+}
